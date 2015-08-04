@@ -1,0 +1,48 @@
+{
+  "name": "ng-modular",
+  "version": "1.0.0",
+  "description": "Truly modular Angular",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "rm -rf build && webpack",
+    "lint": "eslint .",
+    "test": "karma start ./karma.conf.js --single-run",
+    "test:watch": "karma start ./karma.conf.js --no-single-run --auto-watch",
+    "validate": "eslint ."
+  },
+  "author": {
+    "name": "Nik Butenko",
+    "email": "nik@butenko.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nkbt/ng-modular.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "angular-mocks": "^1.4.3",
+    "babel-loader": "^5.3.2",
+    "css-loader": "^0.15.6",
+    "eslint": "^1.0.0",
+    "eslint-loader": "^0.14.2",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "html-webpack-plugin": "^1.6.0",
+    "isparta-loader": "^0.2.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.3",
+    "karma-coverage": "^0.4.2",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-webpack": "^1.7.0",
+    "ng-cache-loader": "0.0.9",
+    "null-loader": "^0.1.1",
+    "phantomjs": "^1.9.17",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.10.5",
+    "webpack-dev-server": "^1.10.1"
+  },
+  "dependencies": {
+    "angular": "^1.4.3"
+  }
+}
