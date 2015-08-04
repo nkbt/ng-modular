@@ -1,0 +1,432 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1024" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Truly modular Angular</title>
+
+  <meta name="description"
+      content="Truly modular Angular" />
+  <meta name="author" content="Nik Butenko" />
+
+  <link
+      href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic"
+      rel="stylesheet" />
+
+  <link href="slides/css/impress-demo.css" rel="stylesheet" />
+
+  <link rel="shortcut icon" href="slides/img/favicon.png" />
+  <link rel="apple-touch-icon" href="slides/img/apple-touch-icon.png" />
+
+  <link rel="stylesheet" href="slides/css/highlight/tomorrow-night-eighties.css">
+</head>
+
+<body class="impress-not-supported">
+
+
+<div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented
+    with a simplified version of this presentation.</p>
+
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b>
+    browser.</p>
+</div>
+
+<div id="impress" data-transition-duration="500">
+
+  <div id="title" class="title step" data-x="0" data-y="0" data-scale="1">
+    <p class="try">Truly modular AngularJS</p>
+
+    <p>Building application with Webpack</p>
+
+    <div class="footnote">
+      <p>Nik Butenko</p>
+      <p>
+        <a target="_blank" href="https://twitter.com/nkbtnk">@nkbtnk</a>,
+        <a target="_blank" href="https://github.com/nkbt">github.com/nkbt</a>
+      </p>
+    </div>
+  </div>
+
+
+  <div id="good" class="title step" data-x="0" data-y="1000">
+    <h2>What makes a good and consistent code?</h2>
+  </div>
+  <div class="title step" data-x="0" data-y="1000">
+    <h2>Small, independent, easy to understand</h2>
+    <h2>code modules</h2>
+  </div>
+  <div class="title step" data-x="0" data-y="1000">
+    <h2>Static code analysis</h2>
+  </div>
+  <div class="title step" data-x="0" data-y="1000">
+    <h2>Code style guide</h2>
+  </div>
+  <div class="title step" data-x="0" data-y="1000">
+    <h2>Code-nazi in your team</h2>
+  </div>
+
+
+  <div id="review" class="title step" data-x="1000" data-y="1000">
+    <h2>Code review</h2>
+  </div>
+  <div class="title step" data-x="1000" data-y="1000">
+    <div style="text-align: center;">
+      <img src="slides/img/wtf.jpg" style="width: 80%;" alt="" />
+    </div>
+  </div>
+
+
+  <div id="ci" class="title step" data-x="2000" data-y="1000">
+    <h2>CI/CD</h2>
+  </div>
+  <div class="title step" data-x="2000" data-y="1000">
+    <h2>It is always good. But...</h2>
+  </div>
+  <div class="title step" data-x="2000" data-y="1000">
+    <h2>Not always easy to setup</h2>
+  </div>
+  <div class="title step" data-x="2000" data-y="1000">
+    <h2>Requires extra tooling and effort</h2>
+  </div>
+  <div class="title step" data-x="2000" data-y="1000">
+    <h2>Slows down initial development cycle</h2>
+  </div>
+  <div class="title step" data-x="2000" data-y="1000">
+    <h2>Thus [almost] always skipped at the start</h2>
+  </div>
+  <div class="title step" data-x="2000" data-y="1000">
+    <h2>And that is OK, because...</h2>
+  </div>
+
+
+  <div id="compiled" class="title step" data-x="0" data-y="2000">
+    <p class="try" style="text-align: center; width: 100%;">Compiled languages</p>
+    <p>Javascript naturally came to be compiled first... At last!</p>
+  </div>
+  <div class="title step" data-x="0" data-y="2000">
+    <h2>Remember CoffeeScript</h2>
+  </div>
+  <div class="title step" data-x="0" data-y="2000">
+    <h2>And why it was not OK?</h2>
+  </div>
+  <div class="title step" data-x="0" data-y="2000">
+    <h2>Sourcemaps!</h2>
+  </div>
+  <div class="title step" data-x="0" data-y="2000">
+    <h2>Now you can compile JS and debug it with sourcemaps</h2>
+  </div>
+  <div class="title step" data-x="0" data-y="2000">
+    <h2>With any syntax you like</h2>
+  </div>
+  <div class="title step" data-x="0" data-y="2000">
+    <h2>ES6, ES7, ES2025</h2>
+  </div>
+  <div class="title step" data-x="0" data-y="2000">
+    <h2>Why compiled?</h2>
+  </div>
+  <div class="title step" data-x="0" data-y="2000">
+    <div style="text-align: center;">
+      <img src="slides/img/es.png" style="width: 80%;" alt="" />
+    </div>
+  </div>
+  <div class="title step" data-x="0" data-y="2000">
+    <h2>Babel JS</h2>
+    <h3><a target="_blank" href="https://babeljs.io/">https://babeljs.io</a></h3>
+  </div>
+  <div class="title step" data-x="0" data-y="2000">
+    <h2>Webpack</h2>
+    <h3><a target="_blank" href="https://webpack.github.io/">https://webpack.github.io</a></h3>
+  </div>
+  <div id="eslint" class="title step" data-x="1000" data-y="2000">
+    <h2>ESLint</h2>
+    <h3><a target="_blank" href="http://eslint.org/">http://eslint.org/</a></h3>
+  </div>
+  <div class="title step" data-x="1000" data-y="2000">
+    <h2>ESLint Loader</h2>
+    <h3><a target="_blank" href="https://github.com/MoOx/eslint-loader">https://github.com/MoOx/eslint-loader</a></h3>
+  </div>
+  <div class="title step" data-x="1000" data-y="2000">
+    <h2>Let's bring it to the compilation!</h2>
+  </div>
+
+
+  <div id="app" class="title step" data-x="2000" data-y="2000">
+    <h2>Simple AngularJS app</h2>
+  </div>
+  <div class="step" data-x="2000" data-y="2000">
+    <h2>src / index.html</h2>
+    <script type="text/plain" data-lang="html">
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Angular Webpack</title>
+</head>
+<body ng-app="app" ng-strict-di>
+
+<hello></hello>
+
+</body>
+</html>
+    </script>
+  </div>
+  <div class="step" data-x="2000" data-y="2000">
+    <h2>src / app.js</h2>
+    <script type="text/plain" data-lang="javascript">
+import angular from 'angular';
+
+const app = angular.module('app', [
+  require('./hello').name
+]);
+
+export default app;
+    </script>
+  </div>
+  <div class="step" data-x="2000" data-y="2000">
+    <h2>src / hello / index.js</h2>
+    <script type="text/plain" data-lang="javascript">
+import angular from 'angular';
+
+const hello = angular.module('hello', []);
+
+hello
+  .directive('hello', require('./hello_directive'));
+
+export default hello;
+    </script>
+  </div>
+  <div class="step" data-x="2000" data-y="2000">
+    <h2>src / hello / hello_directive.js</h2>
+    <script type="text/plain" data-lang="javascript">
+const $inject = [];
+const Hello = function () {
+  require('./hello.css');
+
+  const link = $scope => {
+    $scope.hello = 'hello';
+  };
+
+  return {
+    template: require('./hello.html'),
+    restrict: 'E',
+    link,
+    scope: {}
+  };
+};
+
+Hello.$inject = $inject;
+
+export default Hello;
+    </script>
+  </div>
+  <div class="step" data-x="2000" data-y="2000">
+    <h2>src / hello / hello.html</h2>
+    <script type="text/plain" data-lang="html">
+<div>
+  {{hello}}
+</div>
+    </script>
+  </div>
+  <div class="step" data-x="2000" data-y="2000">
+    <h2>src / hello / hello.css</h2>
+    <script type="text/plain" data-lang="css">
+hello {
+  display: block;
+  margin: 2em;
+  color: red;
+  font-size: 50px;
+  text-align: center;
+}
+    </script>
+  </div>
+  <div class="title step" data-x="2000" data-y="2000">
+    <h2>npm start</h2>
+  </div>
+  <div class="title step" data-x="2000" data-y="2000">
+    <div style="text-align: center;">
+      <img src="slides/img/npm-start.png" style="width: 80%;" alt="" />
+    </div>
+  </div>
+  <div class="title step" data-x="2000" data-y="2000">
+    <div style="text-align: center;">
+      <img src="slides/img/run-1.png" style="width: 80%;" alt="" />
+    </div>
+  </div>
+  <div class="title step" data-x="2000" data-y="2000">
+    <h2>Let's change some code</h2>
+  </div>
+  <div class="step" data-x="2000" data-y="2000">
+    <script type="text/plain" data-lang="javascript">
+// ...
+
+  const link = $scope => {
+    $scope.hello = 'hello ngSydney!';
+  };
+
+// ...
+    </script>
+  </div>
+  <div class="title step" data-x="2000" data-y="2000">
+    <div style="text-align: center;">
+      <img src="slides/img/run-2.png" style="width: 80%;" alt="" />
+    </div>
+  </div>
+  <div class="title step" data-x="2000" data-y="2000">
+    <h2>What if I make some mistake?</h2>
+  </div>
+  <div class="step" data-x="2000" data-y="2000">
+    <script type="text/plain" data-lang="javascript">
+// ...
+
+  const link = $scope => {
+    $scope.hello = 'hello ngSydney!'
+                                   ^^^ Oops, no semicolon
+  };
+
+// ...
+    </script>
+  </div>
+  <div class="title step" data-x="2000" data-y="2000">
+    <div style="text-align: center;">
+      <img src="slides/img/err-1.png" style="width: 80%;" alt="" />
+    </div>
+  </div>
+
+  <div id="demo" class="title step" data-x="0" data-y="3000">
+    <p class="try" style="text-align: center; width: 100%;">&gt; SHOWTIME &lt;</p>
+  </div>
+
+  <div id="thanks" class="title step" data-x="0" data-y="10000" data-rotate-x="90"
+      data-rotate-y="90" data-scale="3">
+
+    <h2>Thanks!</h2>
+    <p>
+      <a target="_blank" href="https://github.com/nkbt/ng-modular"
+          style="white-space: nowrap">
+        https://github.com/nkbt/ng-modular
+      </a>
+    </p>
+    <p>
+      <a target="_blank" href="https://github.com/packetloop/angular-webpack"
+          style="white-space: nowrap">
+        https://github.com/packetloop/angular-webpack
+      </a>
+    </p>
+    <div style="text-align: center;">
+      <img src="slides/img/qr.png" style="width: 60%;" alt="" />
+    </div>
+    <img src="slides/img/nyantocat.gif"
+        style="position: absolute; right: 135px; bottom: 30px; width: 100px; border-radius: 50px;"
+        alt="" />
+    <h3><a target="_blank" href="https://twitter.com/nkbtnk">@nkbtnk</a></h3>
+  </div>
+
+
+  <div id="overview" class="step" data-x="2200" data-y="3000" data-scale="10">
+  </div>
+
+</div>
+
+<ul id="nav">
+</ul>
+
+<script type="text/javascript" src="slides/js/impress.js"></script>
+<script type="text/javascript" src="slides/js/highlight.pack.js"></script>
+
+<script>
+
+  (function () {
+
+    var codes = {},
+        timers = {};
+
+    function typeText(id, $element, callback) {
+      var TIMEOUT = 10,
+          code;
+      if (!!timers[id]) {
+        clearTimeout(timers[id]);
+        timers[id] = null;
+      }
+      if (!codes[id]) {
+        codes[id] = $element.innerText.trim();
+      }
+      code = codes[id].split('');
+      $element.innerHTML = '';
+      $element.style.display = 'block';
+
+      function typeChar() {
+        if (code.length < 1) {
+          return callback();
+        }
+        var char = code.shift();
+        if (char === '\t') {
+          char = '  ';
+        }
+        $element.innerHTML = [$element.innerHTML, char].join('');
+        timers[id] = setTimeout(
+            typeChar,
+            (char === '\n') ?
+            TIMEOUT * 5 + TIMEOUT * 5 * Math.random() :
+            TIMEOUT + TIMEOUT * Math.random()
+        );
+      }
+
+      return typeChar();
+    }
+
+    function processScript($script) {
+      var $pre,
+          $code;
+      $pre = document.createElement('pre');
+      $code = document.createElement('code');
+      $code.classList.add('hljs');
+      $code.classList.add($script.dataset.lang);
+      $code.innerText = $script.innerText.trim();
+      $pre.appendChild($code);
+
+      $script.parentNode.replaceChild($pre, $script);
+
+      return $code;
+    }
+
+    document.body.addEventListener("impress:stepenter", function (event) {
+      return Array.prototype.slice.apply(event.target.querySelectorAll('script[data-lang]'))
+          .map(processScript)
+          .forEach(function ($code, index) {
+            return typeText([event.target.id, index].join('-'), $code, function () {
+              hljs.highlightBlock($code);
+            });
+          });
+    }, false);
+
+    Array.prototype.slice.apply(document.querySelectorAll('[id].step')).forEach(function ($element) {
+      var $a = document.createElement('a'),
+          $li = document.createElement('li'),
+          $h = $element.querySelector('h2, h3');
+      $li.appendChild($a);
+      $a.title = $h && $h.innerHTML || $element.id;
+      $a.dataset.id = $element.id;
+      $a.href = ['#', $element.id].join('');
+      $a.innerHTML = $element.id;
+      return document.querySelector('#nav').appendChild($li);
+    });
+
+    document.body.addEventListener("impress:stepenter", function (event) {
+      Array.prototype.slice.apply(document.querySelectorAll('#nav a')).forEach(function ($a) {
+        if ($a.dataset.id === event.target.id) {
+          $a.classList.add('active');
+        } else {
+          $a.classList.remove('active');
+        }
+      });
+    }, false);
+
+
+    impress().init();
+  }());
+</script>
+</body>
+</html>
