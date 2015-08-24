@@ -417,12 +417,12 @@ a:focus {
 
 .impress-enabled pre code {
   font-family: Consolas, "Liberation Mono", Courier, monospace;
-  font-size: 0.8em;
+  font-size: 1em;
   line-height: 1.2em;
-  max-height: 90%;
-  min-height: 24em;
+  max-height: 18em;
+  min-height: 12em;
 
-  overflow-x: auto;
+  overflow: auto;
 }
 
 #nav {
