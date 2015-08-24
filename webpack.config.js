@@ -1,5 +1,4 @@
 var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -14,7 +13,13 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.js$/, loader: 'babel', include: path.resolve('src')},
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap')},
+      {
+        test: /\.css$/,
+        loaders: [
+          'style',
+          'css?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]'
+        ]
+      },
       {test: /\.html$/, loader: 'ng-cache?prefix=[dir]/[dir]'}
     ],
     preLoaders: [{test: /\.js$/, loader: 'eslint', include: path.resolve('src')}],
@@ -26,7 +31,6 @@ module.exports = {
     }
   },
   plugins: [
-    new ExtractTextPlugin('style.css', {allChunks: true}),
     new HtmlWebpackPlugin({
       template: path.resolve('src', 'index.html'),
       inject: 'body'
